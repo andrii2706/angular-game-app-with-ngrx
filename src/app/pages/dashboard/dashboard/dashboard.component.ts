@@ -5,6 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { StatusEnum } from '../../../shared/enum/status.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +29,7 @@ export class DashboardComponent extends ClearObservable implements OnInit {
         nameOfTask: new FormControl("", Validators.required),
         starttimeOfTask: new FormControl("", Validators.required),
         endtimeOfTask: new FormControl("", Validators.required),
-        taskStatus: new FormControl("Draft", Validators.required),
+        taskStatus: new FormControl(StatusEnum.DRAFT_STATUS, Validators.required),
     })
   }
   clearForm() {
