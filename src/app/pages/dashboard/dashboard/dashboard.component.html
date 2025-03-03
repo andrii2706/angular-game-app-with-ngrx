@@ -1,8 +1,23 @@
-<form action="">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <button (click)="clearForm()">Cancel</button>
-    <button (click)="submitForm()">Submit</button>
-</form>
-
+<section>
+    <form [formGroup]="todoForm" class="todo-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name of task</mat-label>
+        <input matInput formControlName="nameOfTask" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [formGroup]="todoForm" [rangePicker]="picker">
+          <input matStartDate formControlName="starttimeOfTask" placeholder="Start date">
+          <input matEndDate formControlName="endtimeOfTask" placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      </form>
+    <div class="form-buttons">
+        <button mat-flat-button (click)="clearForm()">Cancel</button>
+        <button mat-flat-button (click)="submitForm()">Submit</button>
+    </div>
+    <div></div>
+</section>
