@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ClearObservable } from '../../../shared/clasess/ClearObservable';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { StatusEnum } from '../../../shared/enum/status.enum';
+import { ClearObservable } from '../../shared/clasess/ClearObservable';
+import { StatusEnum } from '../../shared/enum/status.enum';
 
 @Component({
   selector: 'app-dashboard',
