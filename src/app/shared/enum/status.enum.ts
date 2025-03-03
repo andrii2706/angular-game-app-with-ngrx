@@ -1,0 +1,5 @@
+export enum StatusEnum {
+  DRAFT_STATUS = 'DRAFT',
+  IN_PROGRESS_STATUS = 'IN PROGRESS',
+  COMPLETED_STATUS = 'COMPLETE'
+}
