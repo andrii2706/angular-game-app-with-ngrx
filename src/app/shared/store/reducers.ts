@@ -11,8 +11,14 @@ export const initialState: TodoState = {
 
 export const todoAppReducer = createReducer(
     initialState,
-    on(addTodo, (state, { content }) => ({
+    on(addTodo, (state, { name , starttimeOfTask, endtimeOfTask, taskStatus }) => ({
       ...state,
-      todos: [...state.todos, { id: Date.now().toString(), content: content }],
+      todos: [...state.todos,
+         { id: Date.now().toString(),
+           content: 
+           {name: name,
+             starttimeOfTask: starttimeOfTask,
+              endtimeOfTask: endtimeOfTask,
+               taskStatus: taskStatus } }],
     }))
 );
