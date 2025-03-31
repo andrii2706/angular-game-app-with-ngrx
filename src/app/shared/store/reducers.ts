@@ -1,16 +1,18 @@
-import { createReducer } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { TodoState } from "../models/todo.interface";
+import { addTodo } from "./actions";
 
 
 export const initialState: TodoState = {
     todos: [],
-    error: null | string,
+    error: null,
     status: 'pending',
   };
 
 export const todoAppReducer = createReducer(
-    on()
-)
-export const gameReducer = createReducer(
-    on()
-)
+    initialState,
+    on(addTodo, (state, { content }) => ({
+      ...state,
+      todos: [...state.todos, { id: Date.now().toString(), content: content }],
+    }))
+);

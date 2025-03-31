@@ -1,13 +1,11 @@
 export interface TodoState {
     todos: Todo[];
-    error: string;
+    error: string | null;
     status: 'pending' | 'loading' | 'error' | 'success';
   }
   
  
-
   export interface Todo {
-    nameOfTask: string;
-
+    id: string;
+    content: string;
   }
-  
