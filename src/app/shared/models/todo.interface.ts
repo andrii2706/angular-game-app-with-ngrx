@@ -1,7 +1,7 @@
 export interface TodoState {
     todos: Todo[];
     error: string | null;
-    status: 'pending' | 'loading' | 'error' | 'success';
+    status: string;
   }
   
  

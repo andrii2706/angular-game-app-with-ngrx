@@ -6,6 +6,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { ClearObservable } from '../../shared/clasess/ClearObservable';
 import { StatusEnum } from '../../shared/enum/status.enum';
+import { Store } from '@ngrx/store';
+import { addTodo, loadTodos } from '../../shared/store/actions';
+import { selectAllTodos } from '../../shared/store/selectors';
+import { AppState } from '../../shared/store/app.state';
+import { Todo } from '../../shared/models/todo.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,13 +20,19 @@ import { StatusEnum } from '../../shared/enum/status.enum';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent extends ClearObservable implements OnInit {
-
+  
   todoForm: FormGroup
-
-  constructor() {
+  allTodos: Todo[] = [];
+ 
+  constructor(private store: Store<AppState>) {
       super();
   }
+
+  allTodos$ = this.store.select(selectAllTodos);
+
   ngOnInit(): void {
+    this.store.dispatch(loadTodos())
+
     this.initForm()
   }
   initForm(){
@@ -36,6 +47,6 @@ export class DashboardComponent extends ClearObservable implements OnInit {
     this.todoForm.reset();
   }
   submitForm() {
-    console.log(this.todoForm.value);
+    this.store.dispatch(addTodo({name: this.todoForm.value.nameOfTask, starttimeOfTask: this.todoForm.value.starttimeOfTask, endtimeOfTask: this.todoForm.value.endtimeOfTask, taskStatus: this.todoForm.value.taskStatus }))
   }
 }

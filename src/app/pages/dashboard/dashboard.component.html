@@ -19,5 +19,10 @@
         <button mat-flat-button (click)="clearForm()">Cancel</button>
         <button mat-flat-button (click)="submitForm()">Submit</button>
     </div>
-    <div></div>
+    @for (todo of allTodos; track $index) {
+      {{todo.content.name}} - name
+      {{todo.content.taskStatus}} -status 
+      {{todo.content.starttimeOfTask}} - start time
+      {{todo.content.endtimeOfTask}} - end time
+    }
 </section>

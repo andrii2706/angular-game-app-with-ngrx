@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@ionic/storage-angular": "^4.0.0",
+    "@ngrx/effects": "^19.0.1",
     "@ngrx/store": "^19.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -27,11 +29,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.1.7",
-<<<<<<< HEAD
-    "@angular/cli": "^19.2.3",
-=======
     "@angular/cli": "^19.2.1",
->>>>>>> 5717ca878029106dac15b48c1841592d12e54f9a
     "@angular/compiler-cli": "^19.1.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.5.0",
