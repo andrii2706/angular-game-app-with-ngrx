@@ -1,5 +1,7 @@
-import { TodoState } from "../models/todo.interface";
+import { Todo } from "../models/todo.interface";
 
 export interface AppState {
-    todos: TodoState;
+    todos: Todo[];
+    error: string | null;
+    status: string;
   }

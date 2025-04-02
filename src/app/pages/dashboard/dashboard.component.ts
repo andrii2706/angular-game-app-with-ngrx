@@ -32,7 +32,7 @@ export class DashboardComponent extends ClearObservable implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadTodos())
-
+    this.store.subscribe(state => {console.log(state)});
     this.initForm()
   }
   initForm(){
